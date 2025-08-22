@@ -55,9 +55,9 @@ void loop() {
   // Control the servos based on distance
   if (cm <= 15 && !objectClose) {
     // Object just came close
-    sl.write(110);        // Move 180° servo ~110°
+    sl.write(120);        // Move 180° servo ~110°
     cr.write(0);          // Rotate 360° servo CW
-    delay(420);           // ~100° rotation (tune this if needed)
+    delay(500);           // ~100° rotation (tune this if needed)
     cr.write(90);         // Stop continuous servo
     objectClose = true;   // Mark object as close
   } 
@@ -65,7 +65,7 @@ void loop() {
     // Object moved away, return servos to initial position
     sl.write(0);          // Reset 180° servo
     cr.write(180);        // Rotate 360° servo CCW
-    delay(420);           // ~100° back rotation (same timing as forward)
+    delay(500);           // ~100° back rotation (same timing as forward)
     cr.write(90);         // Stop continuous servo
     objectClose = false;  // Mark object as far
   }
